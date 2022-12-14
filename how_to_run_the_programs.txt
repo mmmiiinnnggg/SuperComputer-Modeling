@@ -1,0 +1,73 @@
+copy file to remote polus server:
+scp <path_to_file> <user_name>@188.44.42.247:<path_to_remote_folder>
+
+
+/*****************************  LOCAL COMPUTER (VSCODE on WINDOWS) ********************************/
+
+serial_task3.cpp:
+compile: g++ serial_task3.cpp -o serial_task3
+run: serial_task3 500 500
+
+mpi_task3.cpp:
+compile: g++ mpi_task3.cpp -o mpi_task3 -l msmpi -L "D:\MPI\Lib\x64" -I "D:\MPI\Include"
+run: mpiexec -n 4 mpi_task3 500 500 0.000007
+
+mpi_omp_task3.cpp:
+compile: g++ -fopenmp mpi_omp_task3.cpp -o mpi_omp_task3 -l msmpi -L "D:\MPI\Lib\x64" -I "D:\MPI\Include"
+run: mpiexec -n 4 mpi_omp_task3 500 500 0.000007 4
+
+serial_task3_cg.cpp:
+compile: g++ serial_task3_cg.cpp -o serial_task3_cg
+run: serial_task3_cg 500 500
+
+mpi_task3_cg.cpp:
+compile: g++ mpi_task3_cg.cpp -o mpi_task3_cg -l msmpi -L "D:\MPI\Lib\x64" -I "D:\MPI\Include"
+run: mpiexec -n 4 mpi_task3_cg 500 500 0.000007
+
+P.S. Because I don't have local GPUs, so I didn't try how to compile and run locally :)
+
+
+/*****************************  SUPER COMPUTER POLUS ********************************/
+
+module load SpectrumMPI/10.1.0
+
+serial_task3.cpp:
+compile: g++ serial_task3.cpp -o serial_task3
+run: ./serial_task3 500 500
+
+mpi_task3.cpp:
+compile: mpic++ -std=c++11 mpi_task3.cpp -o mpi_task3
+run: mpirun -n 4 mpi_task3 500 500 0.000007
+submit: mpisubmit.pl -p 4 -w 00:30 --stdout ./mpi_output/p4_500_500_30min_7e-6.out mpi_task3 500 500 0.000007
+
+mpi_omp_task3.cpp:
+compile: mpic++ -std=c++11 mpi_omp_task3.cpp -o mpi_omp_task3 -fopenmp
+run: mpirun -n 4 mpi_omp_task3 500 500 0.000007 4
+submit: use bsub script, example:
+
+vim hybrid_submit.lsf
+
+# BSUB -n 4
+# BSUB -W 00:30
+# BSUB -o "./omp_output/p4_t4_500_500.out"
+# BSUB -e "run.%J.err"
+OMP_NUM_THREADS=4
+mpiexec -n 4 ./mpi_omp_task3 500 500 0.000007 4
+
+bsub < hybrid_submit.lsf
+
+
+to run OpenACC program, first need to load some modules:
+
+module rm SpectrumMPI/10.1.0
+module load openmpi
+module load pgi
+
+mpi_acc.cpp:
+compile: mpic++ -acc -ta=tesla:managed -Minfo=accel -o mpi_acc mpi_acc.cpp -std=c++11 (note: different GPU number configuration with different cpp files)
+run: mpirun -n 4 mpi_acc 500 500 0.000007
+submit: 
+
+single gpu : bsub -q normal -gpu - mpiexec -n 1 mpi_acc 15000 15000 0.0000001
+2gpus:  bsub -n 2 -q normal -gpu "num=2:mode=exclusive_process" mpiexec -n 2 mpi_acc_2 15000 15000 0.0000001
+multi-gpu > 2: bsub -q normal -n 4 -R "span[ptile=2]" -gpu "num=2:mode=exclusive_process" mpiexec -n 4 mpi_acc_4 15000 15000 0.0000001
