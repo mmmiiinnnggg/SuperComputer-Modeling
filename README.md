@@ -36,16 +36,16 @@ For the numerical solution we will use **minimal discrepancies method (MD)** and
 
 - The results of MPI+OpenMP programs
 
-| Configuration | Time(s) | Acceleration |
-| :-----| ----: | :----: |
-| Serial | 6125.610 | 1 |
-| MPI-20 processes | 310.412 | 19.734 |
-| MPI-40 processes | 161.982 | 37.816 |
-| MPI-20 processes-2 threads | 263.950 | 23.207 |
-| MPI-40 processes-2 threads | 133.614 | 45.846 |
-| MPI-ACC-1 gpu| 10.154 | 465.684 |
-| MPI-ACC-2 gpu | 6.292 | 973.555 |
-| MPI-ACC-4 gpu | 3.324 | 1842.842 |
+| #MPI Processes | #Threads | Grid | Time(s) - MD | Acceleration for MD|
+| :-----| ----: | :----: | :----: | :----: |
+| 1 | 4 | 500*500 | 1073.640| 1 |
+| 2 | 4 | 500*500 | 531.197 | 2.021 |
+| 4 | 4 | 500*500 | 268.924  | 3.992 |
+| 8 | 4 | 500*500 | 168.822 | 6.350 | 
+| 1 | 4 | 500*1000 | 791.297  | 1 |
+| 2 | 4 | 500*1000 | 417.500 | 1.895 |
+| 4 | 4 | 500*1000 | 198.427  | 3988 |
+| 8 | 4 | 500*1000 | 104.533  | 7.570 |
 
 - The results with big grid(15000×15000) and fixed number of iterations(100 iterations). The GPU device is Tesla P100. This size of the problem takes about 12GB of GPU RAM
 
@@ -56,7 +56,7 @@ For the numerical solution we will use **minimal discrepancies method (MD)** and
 | MPI-40 processes | 161.982 | 37.816 |
 | MPI-20 processes-2 threads | 263.950 | 23.207 |
 | MPI-40 processes-2 threads | 133.614 | 45.846 |
-| MPI-ACC-1 gpu| 10.154 | 465.684 |
+| MPI-ACC-1 gpu| 10.154 | 603.271 |
 | MPI-ACC-2 gpu | 6.292 | 973.555 |
 | MPI-ACC-4 gpu | 3.324 | 1842.842 |
 
