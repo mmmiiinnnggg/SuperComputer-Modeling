@@ -260,7 +260,6 @@ void solve(int M, int N, double h1, double h2){
             cout << "iter: " << iter << ", tau: "<< tau <<", err_norm: " << norm(diff_w_and_w_pr, M, N, h1, h2) << "\n";
         }
 
-        // if (iter == 100) break;
     }
 
     cout << "Finished!!!" << "\n";

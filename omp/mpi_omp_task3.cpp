@@ -11,7 +11,7 @@
 #define A2 4
 #define B1 0
 #define B2 3
-#define PRINT_FREQ 1
+#define PRINT_FREQ 1000
 
 #define TAG_X 666
 #define TAG_Y 999
@@ -668,7 +668,6 @@ void Process::solve(){
         diff = sqrt(diff);
         
         if (rank == 0 && iter % PRINT_FREQ == 0) cout << "iter: " << iter << ", tau: " << tau_global << ", err_norm: " << diff << "\n";
-        if (iter == 100) break;
 
     } while (diff > eps);
 

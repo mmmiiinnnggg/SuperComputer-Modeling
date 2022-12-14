@@ -10,7 +10,7 @@
 #define A2 4
 #define B1 0
 #define B2 3
-#define PRINT_FREQ 1
+#define PRINT_FREQ 1000
 
 #define TAG_X 666
 #define TAG_Y 999

@@ -12,7 +12,6 @@
 #define B1 0
 #define B2 3
 #define PRINT_FREQ 1000
-// #define EPS 1e-6
 
 #define TAG_1 666
 #define TAG_2 777
