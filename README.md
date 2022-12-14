@@ -14,6 +14,7 @@ The true function is $u(x,y)=\sqrt{4+xy}$, $k(x,y) = 4 + x + y$, $q(x,y) = x + y
 - The results of MPI+OpenMP programs
 
 - The results with fixed number of matrix dimensions(15000×15000) and number of iterations(100 iterations). The GPU device is Tesla P100. This size of the problem takes about 12GB of GPU RAM
+
 | Configuration | Time(s) | Acceleration |
 | :-----| ----: | :----: |
 | Serial | 6125.610 | 1 |
