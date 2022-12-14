@@ -1,6 +1,7 @@
 # SuperComputer-Modeling
-## HPC technologies practical works including MPI, OpenMP, OpenACC
+HPC technologies practical works including MPI, OpenMP, OpenACC
 
+# Task description  
 Parallel programs to solve the **Poisson's differential equation** with potential $-\Delta u + q(x,y)u = F(x,y)$  
 
 in the area of $\Pi = \{(x,y): 0 \leqslant x \leqslant 4, 0 \leqslant y \leqslant 3\}$, in which the Laplace operator is  
@@ -20,6 +21,8 @@ where $n$ is the unit external normal to the boundary.
 The true function is $u(x,y)=\sqrt{4+xy}$, $k(x,y) = 4 + x + y$, $q(x,y) = x + y$. 
 
 For the numerical solution we will use **minimal discrepancies method (MD)** and **conjugate gradients method (CG)**.  
+
+## Results
 
 - The results of MPI programs
 
