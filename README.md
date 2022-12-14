@@ -24,7 +24,7 @@ For the numerical solution we will use **minimal discrepancies method (MD)** and
 
 ## Results
 
-- The results of MPI programs
+- The results of MPI program
 
 | #MPI Processes | Grid | Time(s) - MD | Times(s) - CG | Acceleration for MD|
 | :----: | :----: | :----: | :----: | :----: |
@@ -37,7 +37,7 @@ For the numerical solution we will use **minimal discrepancies method (MD)** and
 | 16 | 500*1000 | 287.097 | 16.691 | 3.055 |
 | 32 | 500*1000 | 158.011 | 12.328 | 5.551 |
 
-- The results of MPI+OpenMP programs
+- The results of MPI+OpenMP program
 
 | #MPI Processes | #Threads | Grid | Time(s) - MD | Acceleration for MD|
 | :----: | :----: | :----: | :----: | :----: |
