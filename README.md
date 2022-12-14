@@ -27,7 +27,7 @@ For the numerical solution we will use **minimal discrepancies method (MD)** and
 - The results of MPI programs
 
 | #MPI Processes | Grid | Time(s) - MD | Times(s) - CG | Acceleration for MD|
-| :-----| ----: | :----: | :----: | :----: |
+| :-----| :----: | :----: | :----: | :----: |
 | 4 | 500*500 | 1198.100 | 16.868 | 1 |
 | 8 | 500*500 | 645.545 | 9.058 | 1.856 |
 | 16 | 500*500 | 356.502 | 5.027 | 3.361 |
@@ -40,7 +40,7 @@ For the numerical solution we will use **minimal discrepancies method (MD)** and
 - The results of MPI+OpenMP programs
 
 | #MPI Processes | #Threads | Grid | Time(s) - MD | Acceleration for MD|
-| :-----| ----: | :----: | :----: | :----: |
+| :-----| :----: | :----: | :----: | :----: |
 | 1 | 4 | 500*500 | 1073.640| 1 |
 | 2 | 4 | 500*500 | 531.197 | 2.021 |
 | 4 | 4 | 500*500 | 268.924  | 3.992 |
@@ -53,7 +53,7 @@ For the numerical solution we will use **minimal discrepancies method (MD)** and
 - The results with big grid(15000×15000) and fixed number of iterations(100 iterations). The GPU device is Tesla P100. This size of the problem takes about 12GB of GPU RAM
 
 | Configuration | Time(s) | Acceleration |
-| :-----| ----: | :----: |
+| :-----| :----: | :----: |
 | Serial | 6125.610 | 1 |
 | MPI-20 processes | 310.412 | 19.734 |
 | MPI-40 processes | 161.982 | 37.816 |
