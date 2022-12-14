@@ -7,6 +7,12 @@ in the area of $\Pi = \{(x,y): 0 \leqslant x \leqslant 4, 0 \leqslant y \leqslan
 
 $\Delta u = \frac{\partial}{\partial x} \left(k(x,y)\frac{\partial u}{\partial x} \right) + \frac{\partial}{\partial y}\left(k(x,y)\frac{\partial u}{\partial y} \right)$
 
+We need boundary conditions to determine the unique solution. For the left ($\gamma_L$) and right ($\gamma_R$) boundary conditions of the third type are given:  
+$\left( k\frac{\partial u}{\partial n}\right)(x,y) + u(x,y) = \psi(x,y)$  
+and for the upper ($\gamma_T$) and lower ($\gamma_B$) bounds a second type condition is given:  
+$\left( k\frac{\partial u}{\partial n}\right)(x,y) = \psi(x,y)$  
+where $n$ is the unit external normal to the boundary.
+
 The true function is $u(x,y)=\sqrt{4+xy}$, $k(x,y) = 4 + x + y$, $q(x,y) = x + y$. 
 
 - The results of MPI programs
