@@ -1,5 +1,5 @@
 # SuperComputer-Modeling
-HPC technologies practical works including MPI, OpenMP, OpenACC
+## HPC technologies practical works including MPI, OpenMP, OpenACC
 
 Parallel programs to solve the **Poisson's differential equation** with potential $-\Delta u + q(x,y)u = F(x,y)$  
 
@@ -9,25 +9,45 @@ $\Delta u = \frac{\partial}{\partial x} \left(k(x,y)\frac{\partial u}{\partial x
 
 We need boundary conditions to determine the unique solution.  
 
-For the left ($\gamma_L$) and right ($\gamma_R$) boundary conditions of the third type are given:  
+For the left and right boundary conditions of the third type are given:  
 $\left( k\frac{\partial u}{\partial n}\right)(x,y) + u(x,y) = \psi(x,y)$  
 
-For the upper ($\gamma_T$) and lower ($\gamma_B$) bounds a second type condition is given:  
+For the upper and lower bounds a second type condition is given:  
 $\left( k\frac{\partial u}{\partial n}\right)(x,y) = \psi(x,y)$  
 
 where $n$ is the unit external normal to the boundary.
 
 The true function is $u(x,y)=\sqrt{4+xy}$, $k(x,y) = 4 + x + y$, $q(x,y) = x + y$. 
 
-For the numerical solution we will use **minimal discrepancies method** and **conjugate gradients method**.  
+For the numerical solution we will use **minimal discrepancies method (MD)** and **conjugate gradients method (CG)**.  
 
 - The results of MPI programs
 
-
+| #MPI Processes | Grid | Time(s) - MD | Times(s) - CG | Acceleration for MD|
+| :-----| ----: | :----: | :----: | :----: |
+| 4 | 500*500 | 1198.100 | 16.868 | 1 |
+| 8 | 500*500 | 645.545 | 9.058 | 1.856 |
+| 16 | 500*500 | 356.502 | 5.027 | 3.361 |
+| 32 | 500*500 | 198.376 | 3.928 | 6.040 | 
+| 4 | 500*1000 | 877.178 | 58.074 | 1 |
+| 8 | 500*1000 | 499.297 | 30.015 | 1.757 |
+| 16 | 500*1000 | 287.097 | 16.691 | 3.055 |
+| 32 | 500*1000 | 158.011 | 12.328 | 5.551 |
 
 - The results of MPI+OpenMP programs
 
-- The results with fixed number of big matrix dimensions(15000×15000) and number of iterations(100 iterations). The GPU device is Tesla P100. This size of the problem takes about 12GB of GPU RAM
+| Configuration | Time(s) | Acceleration |
+| :-----| ----: | :----: |
+| Serial | 6125.610 | 1 |
+| MPI-20 processes | 310.412 | 19.734 |
+| MPI-40 processes | 161.982 | 37.816 |
+| MPI-20 processes-2 threads | 263.950 | 23.207 |
+| MPI-40 processes-2 threads | 133.614 | 45.846 |
+| MPI-ACC-1 gpu| 10.154 | 465.684 |
+| MPI-ACC-2 gpu | 6.292 | 973.555 |
+| MPI-ACC-4 gpu | 3.324 | 1842.842 |
+
+- The results with big grid(15000×15000) and fixed number of iterations(100 iterations). The GPU device is Tesla P100. This size of the problem takes about 12GB of GPU RAM
 
 | Configuration | Time(s) | Acceleration |
 | :-----| ----: | :----: |
