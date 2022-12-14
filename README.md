@@ -1,16 +1,11 @@
 # SuperComputer-Modeling
 HPC technologies practical works including MPI, OpenMP, OpenACC
 
-Parallel programs to solve the Poisson's differential equation with potential  
-\begin{equation}
-    -\Delta u + q(x,y)u = F(x,y)
-\end{equation}
+Parallel programs to solve the Poisson's differential equation with potential $-\Delta u + q(x,y)u = F(x,y)$  
 
 in the area of $\Pi = \{(x,y): 0 \leqslant x \leqslant 4, 0 \leqslant y \leqslant 3\}$, in which the Laplace operator is  
 
-\begin{equation}
-    \Delta u = \frac{\partial}{\partial x} \left(k(x,y)\frac{\partial u}{\partial x} \right) + \frac{\partial}{\partial y}\left(k(x,y)\frac{\partial u}{\partial y} \right)
-\end{equation}
+$\Delta u = \frac{\partial}{\partial x} \left(k(x,y)\frac{\partial u}{\partial x} \right) + \frac{\partial}{\partial y}\left(k(x,y)\frac{\partial u}{\partial y} \right)$
 
 The true function is $u(x,y)=\sqrt{4+xy}$, $k(x,y) = 4 + x + y, q(x,y) = x + y$. 
 
