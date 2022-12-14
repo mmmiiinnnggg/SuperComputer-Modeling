@@ -2,7 +2,9 @@
 HPC technologies practical works including MPI, OpenMP, OpenACC
 
 ## Task description  
-Parallel programs to solve the **Poisson's differential equation** with potential $-\Delta u + q(x,y)u = F(x,y)$  
+Parallel programs to solve the **Poisson's differential equation** with potential:   
+
+$-\Delta u + q(x,y)u = F(x,y)$  
 
 in the area of $\Pi = \{(x,y): 0 \leqslant x \leqslant 4, 0 \leqslant y \leqslant 3\}$, in which the Laplace operator is  
 
