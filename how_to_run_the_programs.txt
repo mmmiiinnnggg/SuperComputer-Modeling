@@ -1,5 +1,4 @@
-copy file to remote polus server:
-scp <path_to_file> <user_name>@188.44.42.247:<path_to_remote_folder>
+scp D:\Codes\Master\SuperComputers\task3\mpi.cpp edu-cmc-skmodel22-617-19@188.44.42.247:/home_edu/edu-cmc-skmodel22-617/edu-cmc-skmodel22-617-19/task3/acc
 
 
 /*****************************  LOCAL COMPUTER (VSCODE on WINDOWS) ********************************/
@@ -17,14 +16,14 @@ compile: g++ -fopenmp mpi_omp_task3.cpp -o mpi_omp_task3 -l msmpi -L "D:\MPI\Lib
 run: mpiexec -n 4 mpi_omp_task3 500 500 0.000007 4
 
 serial_task3_cg.cpp:
-compile: g++ serial_task3_cg.cpp -o serial_task3_cg
+compile: g++ serial_task3_cg.cpp -o serial_task3
 run: serial_task3_cg 500 500
 
 mpi_task3_cg.cpp:
 compile: g++ mpi_task3_cg.cpp -o mpi_task3_cg -l msmpi -L "D:\MPI\Lib\x64" -I "D:\MPI\Include"
 run: mpiexec -n 4 mpi_task3_cg 500 500 0.000007
 
-P.S. Because I don't have local GPUs, so I didn't try how to compile and run locally :)
+P.S. Because I don't have local GPUs, so I didn't try how to compile and run locally
 
 
 /*****************************  SUPER COMPUTER POLUS ********************************/
