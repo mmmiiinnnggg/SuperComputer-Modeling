@@ -67,6 +67,6 @@ compile: mpic++ -acc -ta=tesla:managed -Minfo=accel -o mpi_acc mpi_acc.cpp -std=
 run: mpirun -n 4 mpi_acc 500 500 0.000007
 submit: 
 
-single gpu : bsub -q normal -gpu - mpiexec -n 1 mpi_acc 15000 15000 0.0000001
-2gpus:  bsub -n 2 -q normal -gpu "num=2:mode=exclusive_process" mpiexec -n 2 mpi_acc_2 15000 15000 0.0000001
-multi-gpu > 2: bsub -q normal -n 4 -R "span[ptile=2]" -gpu "num=2:mode=exclusive_process" mpiexec -n 4 mpi_acc_4 15000 15000 0.0000001
+single gpu : bsub -q normal -o ./single_gpu.out -gpu - mpiexec -n 1 mpi_acc 15000 15000 0.0000001
+2gpus:  bsub -n 2 -q normal -o ./2_gpu.out -gpu "num=2:mode=exclusive_process" mpiexec -n 2 mpi_acc_2 15000 15000 0.0000001
+multi-gpu > 2: bsub -q normal -n 4 -o ./4_gpu.out -R "span[ptile=2]" -gpu "num=2:mode=exclusive_process" mpiexec -n 4 mpi_acc_4 15000 15000 0.0000001
