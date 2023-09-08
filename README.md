@@ -7,7 +7,7 @@ HPC technologies practical works including MPI, OpenMP, OpenACC
 
 Parallel computation graph visualization using Algolang and Algoview
 
-see link, TODO
+see [link](https://github.com/mmmiiinnnggg/SuperComputer-Modeling/blob/main/task_materials_and_reports/2/Task%202.pdf), TODO
 
 ### Results
 
@@ -19,7 +19,7 @@ TODO
 
 Numerical integration using Monte-Carlo method
 
-see link, TODO
+see [link](https://github.com/mmmiiinnnggg/SuperComputer-Modeling/blob/main/task_materials_and_reports/3/Task%203%20updated%20-%201%20%D0%B8%202%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BA%D0%B8.pdf), TODO
 
 ### Results
 
@@ -66,14 +66,6 @@ For the numerical solution we will use **minimal discrepancies method (MD)** and
 | 16 | 500*1000 | 287.097 | 16.691 | 3.055 |
 | 32 | 500*1000 | 158.011 | 12.328 | 5.551 |
 
-## Task 4
-
-### Description
-
-Accelerate the computation in Task3 using CUDA technologies. It's allowed to write CUDA-kernels in C, `#pragma` prompts of OpenACC, or DVMH model.
-
-### Results
-
 - The results of MPI+OpenMP program
 
 | #MPI Processes | #Threads | Grid | Time(s) - MD | Acceleration for MD|
@@ -86,6 +78,14 @@ Accelerate the computation in Task3 using CUDA technologies. It's allowed to wri
 | 2 | 4 | 500*1000 | 417.500 | 1.895 |
 | 4 | 4 | 500*1000 | 198.427  | 3988 |
 | 8 | 4 | 500*1000 | 104.533  | 7.570 |
+
+## Task 4
+
+### Description
+
+Accelerate the computation in Task3 using CUDA technologies. It's allowed to write CUDA-kernels in C, `#pragma` prompts of OpenACC, or DVMH model.
+
+### Results
 
 - The results with big grid(15000×15000) and fixed number of iterations(100 iterations). The GPU device is Tesla P100. This size of the problem takes about 12GB of GPU RAM
 
