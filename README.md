@@ -1,7 +1,34 @@
 # SuperComputer-Modeling
 HPC technologies practical works including MPI, OpenMP, OpenACC
 
-## Task description  
+## Task1
+
+### Description 
+
+Parallel computation graph visualization using Algolang and Algoview
+
+see link, TODO
+
+### Results
+
+TODO
+
+## Task2
+
+### Description 
+
+Numerical integration using Monte-Carlo method
+
+see link, TODO
+
+### Results
+
+TODO
+
+## Task 3 
+
+### Description  
+
 Parallel programs to solve the **Poisson's differential equation** with potential:   
 
 $-\Delta u + q(x,y)u = F(x,y)$  
@@ -24,7 +51,7 @@ The true function is $u(x,y)=\sqrt{4+xy}$, $k(x,y) = 4 + x + y$, $q(x,y) = x + y
 
 For the numerical solution we will use **minimal discrepancies method (MD)** and **conjugate gradients method (CG)**.  
 
-## Results
+### Results
 
 - The results of MPI program
 
@@ -38,6 +65,14 @@ For the numerical solution we will use **minimal discrepancies method (MD)** and
 | 8 | 500*1000 | 499.297 | 30.015 | 1.757 |
 | 16 | 500*1000 | 287.097 | 16.691 | 3.055 |
 | 32 | 500*1000 | 158.011 | 12.328 | 5.551 |
+
+## Task 4
+
+### Description
+
+Accelerate the computation in Task3 using CUDA technologies. It's allowed to write CUDA-kernels in C, `#pragma` prompts of OpenACC, or DVMH model.
+
+### Results
 
 - The results of MPI+OpenMP program
 
